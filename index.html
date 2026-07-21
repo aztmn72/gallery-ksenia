@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ксения Лившун — Оригинальные Картины</title>
-    <meta name="description" content="Оригинальные картины в смешанной технике. Фирменный стиль «красная нить». Доставка по всему миру.">
+    <meta name="description" content="Оригинальные картины в смешанной технике. Фирменный стиль «красная нить». Роспись стен. Доставка по всему миру.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -13,19 +13,16 @@
         body{font-family:'Inter',sans-serif;background:#FAF8F5;color:#1a1a1a;overflow-x:hidden}
         ::selection{background:#c81414;color:#fff}
 
-        /* Header */
-        .header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,245,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.05);transition:all .3s}
+        .header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,245,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.05)}
         .header-inner{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px}
-        .logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;color:#1a1a1a;text-decoration:none;letter-spacing:0.5px}
+        .logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;color:#fff;text-decoration:none;letter-spacing:0.5px}
         .nav{display:flex;gap:32px}
-        .nav a{font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:#666;text-decoration:none;transition:color .3s}
+        .nav a{font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:#999;text-decoration:none;transition:color .3s}
         .nav a:hover,.nav a.active{color:#c81414}
 
-        /* Crimson Thread Line */
         .crimson-line{position:fixed;top:0;left:0;right:0;pointer-events:none;z-index:5}
         .crimson-line svg{width:100%;height:100vh}
 
-        /* Hero */
         .hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#1a1a1a}
         .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#2a2520,#1a1815,#0f0e0c)}
         .hero-content{position:relative;z-index:10;text-align:center;padding:24px}
@@ -34,38 +31,32 @@
         .hero-thread{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(200,20,20,0.7);margin-bottom:48px}
         .hero-btn{display:inline-flex;align-items:center;gap:12px;color:#fff;border:1px solid rgba(255,255,255,0.3);padding:14px 32px;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;transition:all .5s}
         .hero-btn:hover{background:#fff;color:#1a1a1a}
-
-        /* Crimson thread underline */
         .hero-name{position:relative;display:inline-block}
         .hero-name::after{content:'';position:absolute;bottom:-8px;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(200,20,20,0.7),transparent)}
 
-        /* Section */
         .section{padding:100px 24px;max-width:1400px;margin:0 auto}
         .section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,48px);font-weight:500;text-align:center;color:#1a1a1a;margin-bottom:8px}
         .section-sub{text-align:center;font-size:14px;color:#888;margin-bottom:48px}
         .section-line{width:48px;height:1px;background:#c81414;margin:0 auto 48px}
 
-        /* Gallery Grid */
-        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:32px}
-        .artwork-card{background:#fff;overflow:hidden;text-decoration:none;color:inherit;transition:transform .4s}
-        .artwork-card:hover{transform:translateY(-8px)}
-        .artwork-img{aspect-ratio:4/3;overflow:hidden;position:relative}
+        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+        .artwork-card{background:#fff;overflow:hidden;text-decoration:none;color:inherit;transition:transform .4s;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+        .artwork-card:hover{transform:translateY(-8px);box-shadow:0 12px 24px rgba(0,0,0,0.1)}
+        .artwork-img{aspect-ratio:3/4;overflow:hidden;position:relative}
         .artwork-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
         .artwork-card:hover .artwork-img img{transform:scale(1.05)}
-        .artwork-badge{position:absolute;top:12px;right:12px;background:#c81414;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px}
-        .artwork-info{padding:20px}
-        .artwork-info h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:500;margin-bottom:4px}
+        .artwork-badge{position:absolute;top:12px;right:12px;background:#c81414;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px;z-index:2}
+        .artwork-info{padding:16px 20px}
+        .artwork-info h3{font-family:'Playfair Display',serif;font-size:16px;font-weight:500;margin-bottom:4px}
         .artwork-info p{font-size:12px;color:#888}
 
-        /* About */
         .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
         .about-img{aspect-ratio:4/5;overflow:hidden}
         .about-img img{width:100%;height:100%;object-fit:cover}
         .about-text h2{font-family:'Playfair Display',serif;font-size:36px;font-weight:500;margin-bottom:24px;color:#1a1a1a}
         .about-text p{font-size:14px;color:#666;line-height:1.8;margin-bottom:16px}
 
-        /* Testimonials */
-        .testimonials{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:32px}
+        .testimonials{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
         .testimonial{background:#fff;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
         .testimonial-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
         .testimonial-flag{font-size:24px}
@@ -74,7 +65,6 @@
         .testimonial-stars{color:#c81414;margin-bottom:16px;font-size:16px}
         .testimonial-text{font-size:14px;color:#666;line-height:1.7}
 
-        /* Shipping */
         .shipping{background:#1a1a1a;color:#fff;padding:100px 24px}
         .shipping-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:32px;max-width:1400px;margin:0 auto}
         .shipping-item{text-align:center;padding:24px}
@@ -83,7 +73,6 @@
         .shipping-item h3{font-size:13px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px}
         .shipping-item p{font-size:12px;color:#999}
 
-        /* FAQ */
         .faq{max-width:800px;margin:0 auto}
         .faq-item{border:1px solid #e0e0e0;background:#fff;margin-bottom:16px}
         .faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:20px;background:none;border:none;cursor:pointer;font-size:14px;font-weight:500;color:#1a1a1a;text-align:left;font-family:'Inter',sans-serif}
@@ -93,7 +82,6 @@
         .faq-icon{color:#ccc;transition:transform .3s}
         .faq-item.open .faq-icon{transform:rotate(45deg)}
 
-        /* Footer */
         .footer{background:#1a1a1a;color:#fff;padding:80px 24px 40px}
         .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:48px;max-width:1400px;margin:0 auto}
         .footer h4{font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:#999;margin-bottom:20px}
@@ -108,44 +96,40 @@
         .footer-social a{width:36px;height:36px;border:1px solid rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .3s}
         .footer-social a:hover{border-color:#c81414}
 
-        /* Responsive */
+        .fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+        .fade-in.visible{opacity:1;transform:translateY(0)}
+
         @media(max-width:768px){
             .nav{display:none}
             .about-grid{grid-template-columns:1fr}
             .gallery-grid{grid-template-columns:1fr 1fr}
             .hero h1{font-size:48px}
             .section{padding:60px 16px}
+            .shipping-grid{grid-template-columns:1fr 1fr}
         }
-
-        /* Scroll animation */
-        .fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
-        .fade-in.visible{opacity:1;transform:translateY(0)}
     </style>
 </head>
 <body>
 
-<!-- Crimson Thread -->
 <div class="crimson-line">
     <svg viewBox="0 0 1440 900" preserveAspectRatio="none">
         <path d="M-50 450 Q 200 420, 400 455 T 800 435 T 1200 465 T 1500 440" stroke="#c81414" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.2"/>
     </svg>
 </div>
 
-<!-- Header -->
 <header class="header">
     <div class="header-inner">
         <a href="/" class="logo">Ксения Лившун</a>
         <nav class="nav">
             <a href="/" class="active">Home</a>
-            <a href="#gallery">Gallery</a>
+            <a href="#paintings">Картины</a>
             <a href="#mural">Роспись</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#about">Об авторе</a>
+            <a href="#contact">Контакт</a>
         </nav>
     </div>
 </header>
 
-<!-- Hero -->
 <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
@@ -154,48 +138,47 @@
         </div>
         <p class="hero-sub">Оригинальные Картины в Смешанной Технике</p>
         <p class="hero-thread">Красная Нить</p>
-        <a href="#gallery" class="hero-btn">Explore Collection</a>
+        <a href="#paintings" class="hero-btn">Смотреть Работы</a>
     </div>
 </section>
 
-<!-- Featured -->
-<section class="section" id="gallery">
-    <h2 class="section-title fade-in">Избранные Работы</h2>
-    <p class="section-sub fade-in">Selected masterpieces from the collection</p>
+<!-- Paintings -->
+<section class="section" id="paintings">
+    <h2 class="section-title fade-in">Картины</h2>
+    <p class="section-sub fade-in">Оригинальные работы в смешанной технике</p>
     <div class="section-line fade-in"></div>
     <div class="gallery-grid">
-        <a href="#" class="artwork-card fade-in">
-            <div class="artwork-img">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#8b2020,#c81414,#8b2020);display:flex;align-items:center;justify-content:center">
-                    <span style="color:rgba(255,255,255,0.5);font-size:14px">Crimson Horizon</span>
-                </div>
-            </div>
-            <div class="artwork-info">
-                <h3>Crimson Horizon</h3>
-                <p>80 × 60 cm · Mixed Media · $1,200</p>
-            </div>
+        <a href="IMG_2880.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2880.jpg" alt="Портретные работы" loading="lazy"></div>
+            <div class="artwork-info"><h3>Портретные работы</h3><p>Смешанная техника · 8,000 ₽</p></div>
         </a>
-        <a href="#" class="artwork-card fade-in">
-            <div class="artwork-img">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#5a3a2a,#8b5a3a,#5a3a2a);display:flex;align-items:center;justify-content:center">
-                    <span style="color:rgba(255,255,255,0.5);font-size:14px">Threads of Memory</span>
-                </div>
-            </div>
-            <div class="artwork-info">
-                <h3>Threads of Memory</h3>
-                <p>100 × 80 cm · Mixed Media · $1,500</p>
-            </div>
+        <a href="IMG_2881.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2881.jpg" alt="Можно всё" loading="lazy"></div>
+            <div class="artwork-info"><h3>Можно Всё</h3><p>60 × 60 см · Смешанная техника · 15,000 ₽</p></div>
         </a>
-        <a href="#" class="artwork-card fade-in">
-            <div class="artwork-img">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#2a4a6a,#4a7a9a,#2a4a6a);display:flex;align-items:center;justify-content:center">
-                    <span style="color:rgba(255,255,255,0.5);font-size:14px">Crimson Waves</span>
-                </div>
-            </div>
-            <div class="artwork-info">
-                <h3>Crimson Waves</h3>
-                <p>120 × 90 cm · Mixed Media · $1,800</p>
-            </div>
+        <a href="IMG_2882.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2882.jpg" alt="Работа" loading="lazy"></div>
+            <div class="artwork-info"><h3>Композиция</h3><p>Смешанная техника</p></div>
+        </a>
+        <a href="IMG_2883.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2883.jpg" alt="Работа" loading="lazy"></div>
+            <div class="artwork-info"><h3>Деталь</h3><p>Смешанная техника</p></div>
+        </a>
+        <a href="IMG_2884.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2884.jpg" alt="Работа" loading="lazy"></div>
+            <div class="artwork-info"><h3>Портрет</h3><p>Смешанная техника</p></div>
+        </a>
+        <a href="IMG_2885.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2885.jpg" alt="Работа" loading="lazy"></div>
+            <div class="artwork-info"><h3>Композиция II</h3><p>Смешанная техника</p></div>
+        </a>
+        <a href="IMG_2886.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2886.jpg" alt="Работа" loading="lazy"></div>
+            <div class="artwork-info"><h3>Абстракция</h3><p>Смешанная техника</p></div>
+        </a>
+        <a href="IMG_2887.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2887.jpg" alt="Работа" loading="lazy"></div>
+            <div class="artwork-info"><h3>Пейзаж</h3><p>Смешанная техника</p></div>
         </a>
     </div>
 </section>
@@ -203,65 +186,40 @@
 <!-- Mural -->
 <section class="section" id="mural" style="background:#fff">
     <h2 class="section-title fade-in">Роспись Стен</h2>
-    <p class="section-sub fade-in">Custom wall paintings and murals</p>
+    <p class="section-sub fade-in">Авторские росписи для интерьеров</p>
     <div class="section-line fade-in"></div>
     <div class="gallery-grid">
-        <a href="#" class="artwork-card fade-in">
-            <div class="artwork-img">
-                <img src="IMG_2872.jpg" alt="Mural: Crimson Flowers" loading="lazy">
-            </div>
-            <div class="artwork-info">
-                <h3>Mural: Crimson Flowers</h3>
-                <p>300 × 200 cm · Mural Paint · $5,000</p>
-            </div>
+        <a href="IMG_2872.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2872.jpg" alt="Роспись: Цветы" loading="lazy"></div>
+            <div class="artwork-info"><h3>Роспись: Цветы</h3><p>300 × 200 см · 5,000 ₽</p></div>
         </a>
-        <a href="#" class="artwork-card fade-in">
-            <div class="artwork-img">
-                <img src="IMG_2873.jpg" alt="Mural: Nature Walls" loading="lazy">
-                <span class="artwork-badge">SOLD</span>
-            </div>
-            <div class="artwork-info">
-                <h3>Mural: Nature Walls</h3>
-                <p>500 × 250 cm · Mural Paint</p>
-            </div>
+        <a href="IMG_2873.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2873.jpg" alt="Роспись: Природа" loading="lazy"><span class="artwork-badge">SOLD</span></div>
+            <div class="artwork-info"><h3>Роспись: Природа</h3><p>500 × 250 см</p></div>
         </a>
-        <a href="#" class="artwork-card fade-in">
-            <div class="artwork-img">
-                <img src="IMG_2874.jpg" alt="Mural: Cafe Interior" loading="lazy">
-                <span class="artwork-badge">SOLD</span>
-            </div>
-            <div class="artwork-info">
-                <h3>Mural: Cafe Interior</h3>
-                <p>250 × 180 cm · Mural Paint</p>
-            </div>
+        <a href="IMG_2874.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2874.jpg" alt="Роспись: Кафе" loading="lazy"><span class="artwork-badge">SOLD</span></div>
+            <div class="artwork-info"><h3>Роспись: Кафе</h3><p>250 × 180 см</p></div>
         </a>
-        <a href="#" class="artwork-card fade-in">
-            <div class="artwork-img">
-                <img src="IMG_2875.jpg" alt="Mural: Residential" loading="lazy">
-            </div>
-            <div class="artwork-info">
-                <h3>Mural: Residential Space</h3>
-                <p>400 × 220 cm · Mural Paint · $6,000</p>
-            </div>
+        <a href="IMG_2875.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2875.jpg" alt="Роспись: Жилой дом" loading="lazy"></div>
+            <div class="artwork-info"><h3>Роспись: Интерьер</h3><p>400 × 220 см · 6,000 ₽</p></div>
         </a>
-        <a href="#" class="artwork-card fade-in">
-            <div class="artwork-img">
-                <img src="IMG_2876.jpg" alt="Mural: Abstract Waves" loading="lazy">
-            </div>
-            <div class="artwork-info">
-                <h3>Mural: Abstract Waves</h3>
-                <p>350 × 200 cm · Mural Paint · $5,500</p>
-            </div>
+        <a href="IMG_2876.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2876.jpg" alt="Роспись: Волны" loading="lazy"></div>
+            <div class="artwork-info"><h3>Роспись: Абстрактные Волны</h3><p>350 × 200 см · 5,500 ₽</p></div>
         </a>
-        <a href="#" class="artwork-card fade-in">
-            <div class="artwork-img">
-                <img src="IMG_2877.jpg" alt="Mural: Botanical" loading="lazy">
-                <span class="artwork-badge">SOLD</span>
-            </div>
-            <div class="artwork-info">
-                <h3>Mural: Botanical Garden</h3>
-                <p>600 × 300 cm · Mural Paint</p>
-            </div>
+        <a href="IMG_2877.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2877.jpg" alt="Роспись: Ботаника" loading="lazy"><span class="artwork-badge">SOLD</span></div>
+            <div class="artwork-info"><h3>Роспись: Ботанический Сад</h3><p>600 × 300 см</p></div>
+        </a>
+        <a href="IMG_2878.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2878.jpg" alt="Роспись: Геометрия" loading="lazy"></div>
+            <div class="artwork-info"><h3>Роспись: Геометрия</h3><p>450 × 250 см · 6,500 ₽</p></div>
+        </a>
+        <a href="IMG_2879.jpg" class="artwork-card fade-in" target="_blank">
+            <div class="artwork-img"><img src="IMG_2879.jpg" alt="Роспись: Заказ" loading="lazy"></div>
+            <div class="artwork-info"><h3>Роспись: Индивидуальный Заказ</h3><p>По запросу</p></div>
         </a>
     </div>
 </section>
@@ -273,11 +231,11 @@
             <img src="portrait.jpg" alt="Ксения Лившун">
         </div>
         <div class="about-text fade-in">
-            <p style="font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#c81414;margin-bottom:16px">About the Artist</p>
+            <p style="font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#c81414;margin-bottom:16px">Об авторе</p>
             <h2>Красная Нить<br>Связывает Всё</h2>
             <p>Ксения Лившун — современный художник из Тюмени, чей фирменный стиль «красная нить» проходит через каждое произведение. Более 15 лет преданности мастерству и уникальное авторское видение делают её работы узнаваемыми во всём мире.</p>
             <p>Каждая картина начинается с красной нити — символа связи между прошлым и настоящим, между стихиями природы и человеческими эмоциями, между художником и зрителем.</p>
-            <a href="#contact" class="hero-btn" style="margin-top:24px;display:inline-flex">Contact Artist</a>
+            <a href="#contact" class="hero-btn" style="margin-top:24px;display:inline-flex">Связаться</a>
         </div>
     </div>
 </section>
@@ -285,68 +243,55 @@
 <!-- Testimonials -->
 <section class="section" id="testimonials">
     <h2 class="section-title fade-in">Отзывы Коллекционеров</h2>
-    <p class="section-sub fade-in">Trusted by art lovers worldwide</p>
+    <p class="section-sub fade-in">Доверие ценителей искусства со всего мира</p>
     <div class="section-line fade-in"></div>
     <div class="testimonials">
         <div class="testimonial fade-in">
-            <div class="testimonial-header">
-                <span class="testimonial-flag">🇺🇸</span>
-                <div><p class="testimonial-name">James Mitchell</p><p class="testimonial-country">USA</p></div>
-            </div>
+            <div class="testimonial-header"><span class="testimonial-flag">🇺🇸</span><div><p class="testimonial-name">James Mitchell</p><p class="testimonial-country">USA</p></div></div>
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"The crimson thread in Ksenia's work creates an emotional connection I've never experienced with art before. It's like the painting is alive."</p>
+            <p class="testimonial-text">"Красная нить в работах Ксении создаёт эмоциональную связь, которую я раньше не испытывал от искусства."</p>
         </div>
         <div class="testimonial fade-in">
-            <div class="testimonial-header">
-                <span class="testimonial-flag">🇫🇷</span>
-                <div><p class="testimonial-name">Marie Dubois</p><p class="testimonial-country">France</p></div>
-            </div>
+            <div class="testimonial-header"><span class="testimonial-flag">🇫🇷</span><div><p class="testimonial-name">Marie Dubois</p><p class="testimonial-country">France</p></div></div>
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-text">"La technique mixte de Ksenia est extraordinaire. Le fil cramoisi crée une profondeur unique."</p>
         </div>
         <div class="testimonial fade-in">
-            <div class="testimonial-header">
-                <span class="testimonial-flag">🇩🇪</span>
-                <div><p class="testimonial-name">Thomas Weber</p><p class="testimonial-country">Germany</p></div>
-            </div>
+            <div class="testimonial-header"><span class="testimonial-flag">🇩🇪</span><div><p class="testimonial-name">Thomas Weber</p><p class="testimonial-country">Germany</p></div></div>
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"Professional packaging, beautiful presentation, and the painting itself is museum quality."</p>
+            <p class="testimonial-text">"Профессиональная упаковка, красивая подача, а сама картина — музейного качества."</p>
         </div>
     </div>
 </section>
 
 <!-- Shipping -->
 <section class="shipping">
-    <h2 class="section-title fade-in" style="color:#fff">Worldwide Shipping</h2>
-    <p class="section-sub fade-in" style="color:#999">Original artworks shipped worldwide with professional packaging and certificate of authenticity</p>
-    <div class="section-line fade-in" style="background:#c81414"></div>
+    <h2 class="section-title fade-in" style="color:#fff">Доставка по Всему Миру</h2>
+    <p class="section-sub fade-in" style="color:#999">Оригинальные произведения искусства доставляются по всему миру с профессиональной упаковкой</p>
+    <div class="section-line fade-in"></div>
     <div class="shipping-grid fade-in">
         <div class="shipping-item">
             <div class="shipping-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
-            <h3>Worldwide</h3>
-            <p>Delivered anywhere</p>
+            <h3>Мир</h3><p>Доставка куда угодно</p>
         </div>
         <div class="shipping-item">
             <div class="shipping-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg></div>
-            <h3>Certificate</h3>
-            <p>Signed by artist</p>
+            <h3>Сертификат</h3><p>Подпись художника</p>
         </div>
         <div class="shipping-item">
             <div class="shipping-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div>
-            <h3>Insured</h3>
-            <p>Full coverage</p>
+            <h3>Страховка</h3><p>Полное покрытие</p>
         </div>
         <div class="shipping-item">
             <div class="shipping-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/></svg></div>
-            <h3>Packaging</h3>
-            <p>Professional crates</p>
+            <h3>Упаковка</h3><p>Профессиональная</p>
         </div>
     </div>
 </section>
 
 <!-- FAQ -->
 <section class="section" id="faq">
-    <h2 class="section-title fade-in">Часто Задаваемые Вопросы</h2>
+    <h2 class="section-title fade-in">Вопросы и Ответы</h2>
     <div class="section-line fade-in"></div>
     <div class="faq fade-in">
         <div class="faq-item" onclick="this.classList.toggle('open')">
@@ -384,7 +329,7 @@
         </div>
         <input type="text" placeholder="Тема" style="width:100%;padding:14px;border:1px solid #ddd;font-size:14px;font-family:'Inter',sans-serif;margin-bottom:24px;outline:none;transition:border-color .3s" onfocus="this.style.borderColor='#c81414'" onblur="this.style.borderColor='#ddd'">
         <textarea placeholder="Ваше сообщение" rows="5" style="width:100%;padding:14px;border:1px solid #ddd;font-size:14px;font-family:'Inter',sans-serif;margin-bottom:24px;outline:none;resize:vertical;transition:border-color .3s" onfocus="this.style.borderColor='#c81414'" onblur="this.style.borderColor='#ddd'"></textarea>
-        <button style="width:100%;padding:14px;background:#c81414;color:#fff;border:none;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;transition:background .3s" onmouseover="this.style.background='#a01010'" onmouseout="this.style.background='#c81414'">Отправить Сообщение</button>
+        <button style="width:100%;padding:14px;background:#c81414;color:#fff;border:none;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;transition:background .3s" onmouseover="this.style.background='#a01010'" onmouseout="this.style.background='#c81414'">Отправить</button>
     </div>
 </section>
 
@@ -399,47 +344,19 @@
                 <a href="mailto:ksyushal@mail.ru"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
             </div>
         </div>
-        <div>
-            <h4>Навигация</h4>
-            <ul class="footer-links">
-                <li><a href="#gallery">Галерея</a></li>
-                <li><a href="#mural">Роспись стен</a></li>
-                <li><a href="#about">Об авторе</a></li>
-                <li><a href="#contact">Контакт</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Доставка</h4>
-            <ul class="footer-links">
-                <li><a href="#">Доставка по всему миру</a></li>
-                <li><a href="#">Сертификат подлинности</a></li>
-                <li><a href="#">Профессиональная упаковка</a></li>
-                <li><a href="#">Безопасная оплата</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Контакты</h4>
-            <ul class="footer-links">
-                <li><a href="mailto:ksyushal@mail.ru">ksyushal@mail.ru</a></li>
-                <li><a href="https://instagram.com/limonka_wallmural" target="_blank">@limonka_wallmural</a></li>
-            </ul>
-        </div>
+        <div><h4>Навигация</h4><ul class="footer-links"><li><a href="#paintings">Картины</a></li><li><a href="#mural">Роспись стен</a></li><li><a href="#about">Об авторе</a></li><li><a href="#contact">Контакт</a></li></ul></div>
+        <div><h4>Доставка</h4><ul class="footer-links"><li><a href="#">По всему миру</a></li><li><a href="#">Сертификат подлинности</a></li><li><a href="#">Профессиональная упаковка</a></li><li><a href="#">Безопасная оплата</a></li></ul></div>
+        <div><h4>Контакты</h4><ul class="footer-links"><li><a href="mailto:ksyushal@mail.ru">ksyushal@mail.ru</a></li><li><a href="https://instagram.com/limonka_wallmural" target="_blank">@limonka_wallmural</a></li><li><a href="tel:+79220480996">+7 922 048 09 96</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-        <p>© 2026 Ксения Лившун. Все права защищены.</p>
-    </div>
+    <div class="footer-bottom"><p>© 2026 Ксения Лившун. Все права защищены.</p></div>
 </footer>
 
 <script>
-// Scroll animation
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
     });
 }, { threshold: 0.1 });
-
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 
