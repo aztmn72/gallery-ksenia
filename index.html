@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ксения Лившун — Оригинальные Картины</title>
+    <title>Лимонка — Оригинальные Картины</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth}
         body{font-family:'Inter',sans-serif;background:#FAF8F5;color:#1a1a1a;overflow-x:hidden}
         ::selection{background:#c81414;color:#fff}
-        .futura{font-family:'Josefin Sans',sans-serif;font-weight:300}
 
-        /* Header */
         .header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,26,26,0.95);backdrop-filter:blur(10px)}
         .header-inner{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
         .logo{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:18px;color:#fff;text-decoration:none;letter-spacing:3px;text-transform:uppercase}
@@ -23,11 +21,9 @@
         .lang-btn{background:none;border:none;color:#666;font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:11px;letter-spacing:1px;cursor:pointer;padding:4px 8px;transition:color .3s}
         .lang-btn:hover,.lang-btn.active{color:#c81414}
 
-        /* Crimson Thread */
         .crimson-line{position:fixed;top:0;left:0;right:0;pointer-events:none;z-index:-1}
         .crimson-line svg{width:100%;height:100vh}
 
-        /* Hero */
         .hero{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#1a1a1a}
         .hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#2a2520,#1a1815,#0f0e0c)}
         .hero-content{position:relative;z-index:10;text-align:center;padding:24px}
@@ -38,48 +34,43 @@
         .hero-btn{display:inline-flex;align-items:center;gap:12px;color:#fff;border:1px solid rgba(255,255,255,0.3);padding:14px 36px;font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:12px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all .5s}
         .hero-btn:hover{background:#fff;color:#1a1a1a}
 
-        /* Sections */
         .section{padding:100px 24px;max-width:1400px;margin:0 auto}
         .section-title{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:clamp(28px,4vw,42px);text-align:center;color:#1a1a1a;margin-bottom:8px;letter-spacing:4px;text-transform:uppercase}
         .section-sub{text-align:center;font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:13px;color:#999;margin-bottom:48px;letter-spacing:2px}
         .section-line{width:40px;height:1px;background:#c81414;margin:0 auto 48px}
 
-        /* Carousel */
+        /* GALLERY FRAME */
+        .frame{position:relative;padding:16px;background:linear-gradient(145deg,#2a2218,#1a1510);border:3px solid #8B7355;box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 4px 20px rgba(0,0,0,0.3),inset 0 0 30px rgba(0,0,0,0.2)}
+        .frame::before{content:'';position:absolute;top:4px;left:4px;right:4px;bottom:4px;border:1px solid rgba(180,150,100,0.3);pointer-events:none}
+        .frame::after{content:'';position:absolute;top:8px;left:8px;right:8px;bottom:8px;border:1px solid rgba(255,255,255,0.05);pointer-events:none}
+        .frame img{width:100%;height:100%;object-fit:cover;display:block}
+
+        /* CAROUSEL */
         .carousel-wrapper{overflow:hidden;padding:40px 0;position:relative}
-        .carousel-track{display:flex;gap:24px;animation:scroll 60s linear infinite;width:max-content}
+        .carousel-track{display:flex;gap:40px;animation:scroll 60s linear infinite;width:max-content;padding:0 40px}
         .carousel-track:hover{animation-play-state:paused}
         @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-        /* Artwork Card with tilt */
-        .artwork-card{flex:0 0 280px;cursor:pointer;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.25,.46,.45,.94),box-shadow .5s;transform-style:preserve-3d;perspective:800px}
-        .artwork-card:hover{transform:scale(1.15) rotateY(-8deg) rotateX(3deg) translateZ(30px);box-shadow:20px 20px 60px rgba(0,0,0,0.3);z-index:10}
-        .artwork-img{aspect-ratio:3/4;overflow:hidden;position:relative;border-radius:2px}
-        .artwork-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
-        .artwork-card:hover .artwork-img img{transform:scale(1.15)}
-        .artwork-badge{position:absolute;top:12px;right:12px;background:#c81414;color:#fff;font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;z-index:2}
-        .artwork-info{padding:12px 0}
-        .artwork-info h3{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:13px;letter-spacing:1px;color:#1a1a1a}
-        .artwork-info p{font-size:11px;color:#888;font-family:'Josefin Sans',sans-serif;font-weight:300;letter-spacing:1px}
+        .carousel-card{flex:0 0 320px;cursor:pointer;transition:transform .5s cubic-bezier(.25,.46,.45,.94),box-shadow .5s;transform-style:preserve-3d;perspective:800px}
+        .carousel-card:hover{transform:scale(1.12) rotateY(-8deg) rotateX(3deg) translateZ(40px);box-shadow:20px 20px 60px rgba(0,0,0,0.4);z-index:10}
+        .carousel-card .frame{aspect-ratio:3/4}
+        .carousel-card .card-info{padding:12px 0;text-align:center}
+        .carousel-card .card-info h3{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:13px;letter-spacing:1px;color:#1a1a1a}
+        .carousel-card .card-info p{font-size:11px;color:#888;font-family:'Josefin Sans',sans-serif;font-weight:300;letter-spacing:1px}
 
-        /* Gallery grid */
-        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:32px}
         .grid-card{cursor:pointer;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.25,.46,.45,.94),box-shadow .5s;transform-style:preserve-3d;perspective:800px}
-        .grid-card:hover{transform:scale(1.08) rotateY(-5deg) rotateX(2deg) translateZ(20px);box-shadow:15px 15px 40px rgba(0,0,0,0.2)}
-        .grid-card .artwork-img{aspect-ratio:3/4;overflow:hidden;position:relative}
-        .grid-card .artwork-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
-        .grid-card:hover .artwork-img img{transform:scale(1.12)}
-        .grid-card .artwork-info{padding:12px 16px;background:#1a1a1a}
-        .grid-card .artwork-info h3{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:13px;letter-spacing:1px;color:#fff}
-        .grid-card .artwork-info p{font-size:11px;color:#666}
+        .grid-card:hover{transform:scale(1.08) rotateY(-5deg) rotateX(2deg) translateZ(20px);box-shadow:15px 15px 40px rgba(0,0,0,0.25)}
+        .grid-card .card-info{padding:16px 0}
+        .grid-card .card-info h3{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:14px;letter-spacing:1px;color:#1a1a1a}
+        .grid-card .card-info p{font-size:11px;color:#888}
+        .badge{position:absolute;top:12px;right:12px;background:#c81414;color:#fff;font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;z-index:2}
 
-        /* About */
         .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-        .about-img{aspect-ratio:4/5;overflow:hidden}
-        .about-img img{width:100%;height:100%;object-fit:cover}
+        .about-img{aspect-ratio:4/5;overflow:hidden}.about-img img{width:100%;height:100%;object-fit:cover}
         .about-text h2{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:32px;margin-bottom:24px;color:#1a1a1a;letter-spacing:3px;text-transform:uppercase}
         .about-text p{font-size:14px;color:#666;line-height:1.8;margin-bottom:16px}
 
-        /* Testimonials */
         .testimonials{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
         .testimonial{background:#fff;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
         .testimonial-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
@@ -89,7 +80,6 @@
         .testimonial-stars{color:#c81414;margin-bottom:16px;font-size:14px}
         .testimonial-text{font-size:14px;color:#666;line-height:1.7}
 
-        /* Shipping */
         .shipping{background:#1a1a1a;color:#fff;padding:100px 24px}
         .shipping-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:32px;max-width:1400px;margin:0 auto}
         .shipping-item{text-align:center;padding:24px}
@@ -98,34 +88,30 @@
         .shipping-item h3{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
         .shipping-item p{font-size:11px;color:#999}
 
-        /* FAQ */
         .faq{max-width:800px;margin:0 auto}
         .faq-item{border:1px solid #e0e0e0;background:#fff;margin-bottom:12px}
-        .faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:18px;background:none;border:none;cursor:pointer;font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:14px;color:#1a1a1a;text-align:left;letter-spacing:0.5px}
+        .faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:18px;background:none;border:none;cursor:pointer;font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:14px;color:#1a1a1a;text-align:left}
         .faq-q:hover{color:#c81414}
         .faq-a{padding:0 18px 18px;font-size:13px;color:#666;line-height:1.7;display:none}
         .faq-item.open .faq-a{display:block}
         .faq-icon{color:#ccc;transition:transform .3s;font-size:18px}
         .faq-item.open .faq-icon{transform:rotate(45deg)}
 
-        /* Contact */
         .contact-input{width:100%;padding:14px;border:1px solid #ddd;font-size:14px;font-family:'Josefin Sans',sans-serif;font-weight:300;outline:none;transition:border-color .3s;background:transparent}
         .contact-input:focus{border-color:#c81414}
         .contact-input::placeholder{color:#bbb}
 
-        /* Footer */
         .footer{background:#111;color:#fff;padding:80px 24px 40px}
         .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:48px;max-width:1400px;margin:0 auto}
         .footer h4{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#666;margin-bottom:20px}
         .footer p,.footer a{font-size:13px;color:#888;line-height:1.7}
         .footer a{color:#888;text-decoration:none;transition:color .3s}
         .footer a:hover{color:#c81414}
-        .footer-links{list-style:none}
-        .footer-links li{margin-bottom:10px}
+        .footer-links{list-style:none}.footer-links li{margin-bottom:10px}
         .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);margin-top:48px;padding-top:24px;max-width:1400px;margin-left:auto;margin-right:auto;text-align:center}
         .footer-bottom p{font-size:11px;color:#555;letter-spacing:1px}
 
-        /* Painting Page */
+        /* PAINTING PAGE */
         .painting-page{display:none;min-height:100vh;background:#FAF8F5;padding-top:64px}
         .painting-page.active{display:block}
         .home-page.hidden{display:none}
@@ -146,11 +132,9 @@
         .painting-desc{font-size:14px;color:#666;line-height:1.8;margin-bottom:32px}
         .painting-price{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:28px;color:#1a1a1a;margin-bottom:32px}
         .painting-btns{display:flex;gap:12px;flex-wrap:wrap}
-        .painting-btn{padding:14px 32px;font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s;cursor:pointer;border:none}
-        .painting-btn-primary{background:#c81414;color:#fff}
-        .painting-btn-primary:hover{background:#a01010}
-        .painting-btn-secondary{background:transparent;color:#1a1a1a;border:1px solid #ddd}
-        .painting-btn-secondary:hover{border-color:#1a1a1a}
+        .painting-btn{padding:14px 32px;font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:all .3s;cursor:pointer;border:none}
+        .painting-btn-primary{background:#c81414;color:#fff}.painting-btn-primary:hover{background:#a01010}
+        .painting-btn-secondary{background:transparent;color:#1a1a1a;border:1px solid #ddd}.painting-btn-secondary:hover{border-color:#1a1a1a}
 
         .fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
         .fade-in.visible{opacity:1;transform:translateY(0)}
@@ -165,7 +149,7 @@
             .hero h1{font-size:36px;letter-spacing:4px}
             .section{padding:60px 16px}
             .shipping-grid{grid-template-columns:1fr 1fr}
-            .artwork-card{flex:0 0 220px}
+            .carousel-card{flex:0 0 240px}
         }
     </style>
 </head>
@@ -181,11 +165,11 @@
     <div class="header-inner">
         <a href="/" class="logo" onclick="showHome();return false">Лимонка</a>
         <nav class="nav">
-            <a href="/" onclick="showHome();return false" class="active">Home</a>
-            <a href="#paintings" onclick="showHome();setTimeout(()=>document.getElementById('paintings').scrollIntoView({behavior:'smooth'}),100);return false">Картины</a>
-            <a href="#mural" onclick="showHome();setTimeout(()=>document.getElementById('mural').scrollIntoView({behavior:'smooth'}),100);return false">Роспись</a>
-            <a href="#about" onclick="showHome();setTimeout(()=>document.getElementById('about').scrollIntoView({behavior:'smooth'}),100);return false">Об авторе</a>
-            <a href="#contact" onclick="showHome();setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),100);return false">Контакт</a>
+            <a href="/" onclick="showHome();return false" class="active" data-ru="Главная" data-en="Home" data-de="Startseite" data-fr="Accueil">Главная</a>
+            <a href="#paintings" onclick="showHome();setTimeout(()=>document.getElementById('paintings').scrollIntoView({behavior:'smooth'}),100);return false" data-ru="Картины" data-en="Paintings" data-de="Gemälde" data-fr="Peintures">Картины</a>
+            <a href="#mural" onclick="showHome();setTimeout(()=>document.getElementById('mural').scrollIntoView({behavior:'smooth'}),100);return false" data-ru="Роспись" data-en="Murals" data-de="Malerei" data-fr="Peintures">Роспись</a>
+            <a href="#about" onclick="showHome();setTimeout(()=>document.getElementById('about').scrollIntoView({behavior:'smooth'}),100);return false" data-ru="Об авторе" data-en="About" data-de="Über uns" data-fr="À propos">Об авторе</a>
+            <a href="#contact" onclick="showHome();setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),100);return false" data-ru="Контакт" data-en="Contact" data-de="Kontakt" data-fr="Contact">Контакт</a>
             <div class="lang-switch">
                 <button class="lang-btn active" onclick="setLang('ru')">RU</button>
                 <button class="lang-btn" onclick="setLang('en')">EN</button>
@@ -217,7 +201,6 @@
     </div>
 </section>
 
-<!-- PAINTINGS GRID -->
 <section class="section" id="paintings">
     <h2 class="section-title fade-in" data-ru="Картины" data-en="Paintings" data-de="Gemälde" data-fr="Peintures">Картины</h2>
     <p class="section-sub fade-in" data-ru="Оригинальные работы в смешанной технике" data-en="Original mixed media works" data-de="Originale Mischtechnik-Arbeiten" data-fr="Œuvres originales à technique mixte">Оригинальные работы в смешанной технике</p>
@@ -225,7 +208,6 @@
     <div class="gallery-grid" id="paintings-grid"></div>
 </section>
 
-<!-- MURAL -->
 <section class="section" id="mural" style="background:#fff">
     <h2 class="section-title fade-in" data-ru="Роспись Стен" data-en="Wall Murals" data-de="Wandmalerei" data-fr="Peintures Murales">Роспись Стен</h2>
     <p class="section-sub fade-in" data-ru="Авторские росписи для интерьеров" data-en="Custom murals for interiors" data-de="Individuelle Wandmalereien" data-fr="Peintures murales sur mesure">Авторские росписи для интерьеров</p>
@@ -233,21 +215,19 @@
     <div class="gallery-grid" id="mural-grid"></div>
 </section>
 
-<!-- ABOUT -->
 <section class="section" id="about">
     <div class="about-grid">
         <div class="about-img fade-in"><img src="portrait.jpg" alt="Ксения Лившун"></div>
         <div class="about-text fade-in">
             <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#c81414;margin-bottom:16px" data-ru="Об авторе" data-en="About" data-de="Über uns" data-fr="À propos">Об авторе</p>
-            <h2 data-ru="Красная Нить Связывает Всё" data-en="The Crimson Thread Connects Everything" data-de="Der Rote Faden Verbindet Alles" data-fr="Le Fil Cramoisi Connecte Tout">Красная Нить Связывает Всё</h2>
-            <p data-ru="Ксения Лившун — современный художник из Тюмени, чей фирменный стиль «красная нить» проходит через каждое произведение. Более 15 лет преданности мастерству и уникальное авторское видение." data-en="Ksenia Livshun is a contemporary artist from Tyumen, Russia, whose signature crimson thread runs through every artwork." data-de="Ksenia Lifschun ist eine zeitgenössische Künstlerin aus Tjumen, Russland." data-fr="Ksenia Livchoun est une artiste contemporaine de Tioumen, Russie.">Ксения Лившун — современный художник из Тюмени, чей фирменный стиль «красная нить» проходит через каждое произведение. Более 15 лет преданности мастерству и уникальное авторское видение.</p>
+            <h2 data-ru="Красная Нить Связывает Всё" data-en="The Crimson Thread" data-de="Der Rote Faden" data-fr="Le Fil Cramoisi">Красная Нить Связывает Всё</h2>
+            <p data-ru="Ксения Лившун — современный художник из Тюмени, чей фирменный стиль «красная нить» проходит через каждое произведение. Более 15 лет преданности мастерству и уникальное авторское видение." data-en="Ksenia Livshun is a contemporary artist from Tyumen, Russia, whose signature crimson thread runs through every artwork." data-de="Ksenia Lifschun ist eine zeitgenössische Künstlerin aus Tjumen, Russland." data-fr="Ksenia Livchoun est une artiste contemporaine de Tioumen.">Ксения Лившун — современный художник из Тюмени, чей фирменный стиль «красная нить» проходит через каждое произведение. Более 15 лет преданности мастерству и уникальное авторское видение.</p>
             <p data-ru="Каждая картина начинается с красной нити — символа связи между прошлым и настоящим." data-en="Each painting begins with a crimson thread — a symbol of connection." data-de="Jedes Gemälde beginnt mit einem roten Faden." data-fr="Chaque peinture commence par un fil cramoisi.">Каждая картина начинается с красной нити — символа связи между прошлым и настоящим.</p>
             <a href="#contact" class="hero-btn" style="margin-top:24px;display:inline-flex" data-ru="Связаться" data-en="Contact" data-de="Kontakt" data-fr="Contact">Связаться</a>
         </div>
     </div>
 </section>
 
-<!-- TESTIMONIALS -->
 <section class="section" id="testimonials">
     <h2 class="section-title fade-in" data-ru="Отзывы" data-en="Reviews" data-de="Bewertungen" data-fr="Avis">Отзывы</h2>
     <div class="section-line fade-in"></div>
@@ -258,7 +238,6 @@
     </div>
 </section>
 
-<!-- SHIPPING -->
 <section class="shipping">
     <h2 class="section-title fade-in" style="color:#fff" data-ru="Доставка по Всему Миру" data-en="Worldwide Shipping" data-de="Weltweiter Versand" data-fr="Expédition Mondiale">Доставка по Всему Миру</h2>
     <div class="section-line fade-in"></div>
@@ -270,20 +249,18 @@
     </div>
 </section>
 
-<!-- FAQ -->
 <section class="section" id="faq">
     <h2 class="section-title fade-in" data-ru="Вопросы" data-en="FAQ" data-de="FAQ" data-fr="FAQ">Вопросы</h2>
     <div class="section-line fade-in"></div>
     <div class="faq fade-in">
-        <div class="faq-item" onclick="this.classList.toggle('open')"><button class="faq-q" data-ru="Как происходит доставка?" data-en="How is shipping?" data-de="Wie läuft der Versand?" data-fr="Comment la livraison?">Как происходит доставка?<span class="faq-icon">+</span></button><div class="faq-a" data-ru="Все работы профессионально упаковываются и отправляются застрахованными службами." data-en="All works are professionally packaged and shipped insured." data-de="Alle Werke werden professionell verpackt und versichert versandt." data-fr="Toutes les œuvres sont emballées et expédiées assurées.">Все работы профессионально упаковываются и отправляются застрахованными службами.</div></div>
+        <div class="faq-item" onclick="this.classList.toggle('open')"><button class="faq-q" data-ru="Как происходит доставка?" data-en="How is shipping?" data-de="Wie Versand?" data-fr="Livraison?">Как происходит доставка?<span class="faq-icon">+</span></button><div class="faq-a" data-ru="Все работы профессионально упаковываются и отправляются застрахованными службами." data-en="All works are professionally packaged and shipped insured." data-de="Alle Werke werden professionell verpackt und versichert versandt." data-fr="Toutes les œuvres sont emballées et expédiées assurées.">Все работы профессионально упаковываются и отправляются застрахованными службами.</div></div>
         <div class="faq-item" onclick="this.classList.toggle('open')"><button class="faq-q" data-ru="Есть ли сертификат?" data-en="Certificate?" data-de="Zertifikat?" data-fr="Certificat?">Есть ли сертификат?<span class="faq-icon">+</span></button><div class="faq-a" data-ru="Да, каждая картина с подписанным сертификатом подлинности." data-en="Yes, every painting has a signed certificate." data-de="Ja, jedes Gemälde hat ein Signiertes Zertifikat." data-fr="Oui, chaque peinture a un certificat signé.">Да, каждая картина с подписанным сертификатом подлинности.</div></div>
-        <div class="faq-item" onclick="this.classList.toggle('open')"><button class="faq-q" data-ru="Сроки доставки?" data-en="Shipping time?" data-de="Lieferzeit?" data-fr="Délai?">Сроки доставки?<span class="faq-icon">+</span></button><div class="faq-a" data-ru="7-14 рабочих дней международная доставка." data-en="7-14 business days international shipping." data-de="7-14 Werktage internationaler Versand." data-fr="7-14 jours ouvrables d'expédition internationale.">7-14 рабочих дней международная доставка.</div></div>
-        <div class="faq-item" onclick="this.classList.toggle('open')"><button class="faq-q" data-ru="Индивидуальный заказ?" data-en="Custom order?" data-de="Individueller Auftrag?" data-fr="Commande personnalisée?">Индивидуальный заказ?<span class="faq-icon">+</span></button><div class="faq-a" data-ru="Да, Ксения работает напрямую с коллекционерами." data-en="Yes, Ksenia works directly with collectors." data-de="Ja, Ksenia arbeitet direkt mit Sammlern." data-fr="Oui, Ksenia travaille directement avec les collectionneurs.">Да, Ксения работает напрямую с коллекционерами.</div></div>
+        <div class="faq-item" onclick="this.classList.toggle('open')"><button class="faq-q" data-ru="Сроки доставки?" data-en="Shipping time?" data-de="Lieferzeit?" data-fr="Délai?">Сроки доставки?<span class="faq-icon">+</span></button><div class="faq-a" data-ru="7-14 рабочих дней международная доставка." data-en="7-14 business days international." data-de="7-14 Werktage international." data-fr="7-14 jours ouvrables internationaux.">7-14 рабочих дней международная доставка.</div></div>
+        <div class="faq-item" onclick="this.classList.toggle('open')"><button class="faq-q" data-ru="Индивидуальный заказ?" data-en="Custom order?" data-de="Individuell?" data-fr="Personnalisé?">Индивидуальный заказ?<span class="faq-icon">+</span></button><div class="faq-a" data-ru="Да, Ксения работает напрямую с коллекционерами." data-en="Yes, Ksenia works directly with collectors." data-de="Ja, Ksenia arbeitet direkt mit Sammlern." data-fr="Oui, Ksenia travaille directement avec les collectionneurs.">Да, Ксения работает напрямую с коллекционерами.</div></div>
         <div class="faq-item" onclick="this.classList.toggle('open')"><button class="faq-q" data-ru="Способы оплаты?" data-en="Payment?" data-de="Zahlung?" data-fr="Paiement?">Способы оплаты?<span class="faq-icon">+</span></button><div class="faq-a" data-ru="Карты, PayPal, Apple Pay, Google Pay, переводы." data-en="Cards, PayPal, Apple Pay, Google Pay, transfers." data-de="Karten, PayPal, Apple Pay, Google Pay, Überweisungen." data-fr="Cartes, PayPal, Apple Pay, Google Pay, virements.">Карты, PayPal, Apple Pay, Google Pay, переводы.</div></div>
     </div>
 </section>
 
-<!-- CONTACT -->
 <section class="section" id="contact" style="background:#fff">
     <h2 class="section-title fade-in" data-ru="Контакт" data-en="Contact" data-de="Kontakt" data-fr="Contact">Контакт</h2>
     <div class="section-line fade-in"></div>
@@ -298,15 +275,14 @@
     </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
     <div class="footer-grid">
-        <div><h4>Ксения Лившун</h4><p data-ru="Современные картины в смешанной технике. Красная нить связывает всё." data-en="Contemporary mixed media paintings. The crimson thread connects everything." data-de="Zeitgenössische Mischtechnik-Gemälde." data-fr="Peintures originales à technique mixte.">Современные картины в смешанной технике. Красная нить связывает всё.</p>
+        <div><h4>Лимонка</h4><p data-ru="Современные картины. Красная нить связывает всё." data-en="Contemporary paintings. The crimson thread connects everything." data-de="Zeitgenössische Gemälde." data-fr="Peintures contemporaines.">Современные картины. Красная нить связывает всё.</p>
         <div class="footer-social"><a href="https://instagram.com/limonka_wallmural" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a><a href="mailto:ksyushal@mail.ru"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7-7-5.7"/></svg></a></div></div>
         <div><h4 data-ru="Навигация" data-en="Navigation" data-de="Navigation" data-fr="Navigation">Навигация</h4><ul class="footer-links"><li><a href="#paintings" onclick="showHome();setTimeout(()=>document.getElementById('paintings').scrollIntoView({behavior:'smooth'}),100);return false" data-ru="Картины" data-en="Paintings" data-de="Gemälde" data-fr="Peintures">Картины</a></li><li><a href="#mural" onclick="showHome();setTimeout(()=>document.getElementById('mural').scrollIntoView({behavior:'smooth'}),100);return false" data-ru="Роспись" data-en="Murals" data-de="Malerei" data-fr="Peintures">Роспись</a></li><li><a href="#about" onclick="showHome();setTimeout(()=>document.getElementById('about').scrollIntoView({behavior:'smooth'}),100);return false" data-ru="Об авторе" data-en="About" data-de="Über uns" data-fr="À propos">Об авторе</a></li><li><a href="#contact" onclick="showHome();setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),100);return false" data-ru="Контакт" data-en="Contact" data-de="Kontakt" data-fr="Contact">Контакт</a></li></ul></div>
         <div><h4 data-ru="Контакты" data-en="Contact" data-de="Kontakt" data-fr="Contact">Контакты</h4><ul class="footer-links"><li><a href="mailto:ksyushal@mail.ru">ksyushal@mail.ru</a></li><li><a href="https://instagram.com/limonka_wallmural" target="_blank">@limonka_wallmural</a></li><li><a href="tel:+79220480996">+7 922 048 09 96</a></li></ul></div>
     </div>
-    <div class="footer-bottom"><p>© 2026 Ксения Лившун. All rights reserved.</p></div>
+    <div class="footer-bottom"><p>© 2026 Лимонка. All rights reserved.</p></div>
 </footer>
 
 </div><!-- /home-page -->
@@ -324,39 +300,118 @@
     </div>
 </div>
 
-<!-- FOOTER for painting page -->
 <footer class="footer" id="painting-footer" style="display:none">
     <div class="footer-grid">
-        <div><h4>Ксения Лившун</h4><p data-ru="Современные картины. Красная нить связывает всё." data-en="Contemporary paintings. The crimson thread connects everything." data-de="Zeitgenössische Gemälde." data-fr="Peintures contemporaines.">Современные картины. Красная нить связывает всё.</p></div>
+        <div><h4>Лимонка</h4><p data-ru="Современные картины. Красная нить связывает всё." data-en="Contemporary paintings. The crimson thread connects everything." data-de="Zeitgenössische Gemälde." data-fr="Peintures contemporaines.">Современные картины. Красная нить связывает всё.</p></div>
         <div><h4 data-ru="Контакты" data-en="Contact" data-de="Kontakt" data-fr="Contact">Контакты</h4><ul class="footer-links"><li><a href="mailto:ksyushal@mail.ru">ksyushal@mail.ru</a></li><li><a href="https://instagram.com/limonka_wallmural" target="_blank">@limonka_wallmural</a></li><li><a href="tel:+79220480996">+7 922 048 09 96</a></li></ul></div>
     </div>
-    <div class="footer-bottom"><p>© 2026 Ксения Лившун. All rights reserved.</p></div>
+    <div class="footer-bottom"><p>© 2026 Лимонка. All rights reserved.</p></div>
 </footer>
 
 <script>
-// ===== DATA =====
 const paintings = [
-    {id:'p1',img:'IMG_2880.jpg',title:'Portrait Pair',titleRu:'Портретная Пара',descRu:'Два портрета рук — мужской с часами и женский в белом. Смешанная техника, реалистичная детализация.',price:'8,000 ₽',size:'30-40 см',material:'Смешанная техника'},
-    {id:'p2',img:'IMG_2881.jpg',title:'Everything Is Possible',titleRu:'Можно Всё',descRu:'Динамичная композиция с рукой, пронизанной красными линиями. Надпись «Можно всё» — девиз художника.',price:'15,000 ₽',size:'60 × 60 см',material:'Смешанная техника'},
-    {id:'p3',img:'IMG_2882.jpg',title:'Composition',titleRu:'Композиция',descRu:'Абстрактная композиция с фирменными красными нитями. Энергия и движение в каждой линии.',price:'По запросу',size:'—',material:'Смешанная техника'},
-    {id:'p4',img:'IMG_2883.jpg',title:'Detail',titleRu:'Деталь',descRu:'Детализированная работа с вниманием к каждой детали. Смешанная техника создаёт глубину.',price:'По запросу',size:'—',material:'Смешанная техника'},
-    {id:'p5',img:'IMG_2884.jpg',title:'Portrait',titleRu:'Портрет',descRu:'Экспрессивный портрет в фирменном стиле. Красная нить связывает образ со зрителем.',price:'По запросу',size:'—',material:'Смешанная техника'},
-    {id:'p6',img:'IMG_2885.jpg',title:'Composition II',titleRu:'Композиция II',descRu:'Вторая часть композиционной серии. Красные линии создают ритм и движение.',price:'По запросу',size:'—',material:'Смешанная техника'},
-    {id:'p7',img:'IMG_2886.jpg',title:'Abstract',titleRu:'Абстракция',descRu:'Чистая абстракция с доминантой красного цвета. Эмоции без слов.',price:'По запросу',size:'—',material:'Смешанная техника'},
-    {id:'p8',img:'IMG_2887.jpg',title:'Landscape',titleRu:'Пейзаж',descRu:'Пейзаж с фирменной красной нитью. Природа сквозь призму авторского видения.',price:'По запросу',size:'—',material:'Смешанная техника'}
-];
-const murals = [
-    {id:'m1',img:'IMG_2872.jpg',title:'Crimson Flowers',titleRu:'Цветы',descRu:'Роспись стены с цветочными мотивами и фирменной красной нитью. Создана для кафе.',price:'5,000 ₽',size:'300 × 200 см',material:'Краски для стен',sold:false},
-    {id:'m2',img:'IMG_2873.jpg',title:'Nature',titleRu:'Природа',descRu:'Панорамная роспись с природными мотивами. Красные нити переплетаются с элементами ландшафта.',price:'Продано',size:'500 × 250 см',material:'Краски для стен',sold:true},
-    {id:'m3',img:'IMG_2874.jpg',title:'Cafe',titleRu:'Кафе',descRu:'Декоративная роспись для кафе. Атмосферная композиция, создающая уютное пространство.',price:'Продано',size:'250 × 180 см',material:'Краски для стен',sold:true},
-    {id:'m4',img:'IMG_2875.jpg',title:'Interior',titleRu:'Интерьер',descRu:'Роспись для жилого пространства. Интимная композиция, гармонично вписывающаяся в интерьер.',price:'6,000 ₽',size:'400 × 220 см',material:'Краски для стен',sold:false},
-    {id:'m5',img:'IMG_2876.jpg',title:'Abstract Waves',titleRu:'Абстрактные Волны',descRu:'Динамичная роспись с волнами и красными нитями. Энергия и движение на стене.',price:'5,500 ₽',size:'350 × 200 см',material:'Краски для стен',sold:false},
-    {id:'m6',img:'IMG_2877.jpg',title:'Botanical Garden',titleRu:'Ботанический Сад',descRu:'Ботаническая роспись с цветами и растениями. Натуральные мотивы в современной интерпретации.',price:'Продано',size:'600 × 300 см',material:'Краски для стен',sold:true},
-    {id:'m7',img:'IMG_2878.jpg',title:'Geometry',titleRu:'Геометрия',descRu:'Геометрическая роспись с пересечением форм и линий. Красная нить в строгой композиции.',price:'6,500 ₽',size:'450 × 250 см',material:'Краски для стен',sold:false},
-    {id:'m8',img:'IMG_2879.jpg',title:'Custom Order',titleRu:'Индивидуальный Заказ',descRu:'Разработка уникального дизайна под конкретное пространство. Каждый заказ — авторская работа.',price:'По запросу',size:'Индивидуально',material:'Краски для стен',sold:false}
+    {id:'p1',img:'IMG_2880.jpg',titleRu:'Портретная Пара',title:'Portrait Pair',
+     descRu:'Два портрета рук — мужской с элегантными часами и женский в воздушном белом платье. Эта работа о балансе сил: мужская уверенность и женская утончённость. Каждый штрих пропитан вниманием к деталям — от блеска часов до прозрачности ткани. Картина, которая говорит без слов, но заставляет чувствовать.',
+     descEn:'Two portraits of hands — male with elegant watch and female in airy white dress. A work about the balance of strength: masculine confidence and feminine grace.',
+     desc_de:'Zwei Handporträts — männlich mit elegantem Wecker und weiblich in luftigem weißem Kleid. Ein Werk über die Balance der Stärke.',
+     desc_fr:'Deux portraits de mains — masculine avec montre élégante et féminine en robe blanche aérienne.',
+     price:'8,000 ₽',size:'30-40 см',material:'Смешанная техника'},
+    {id:'p2',img:'IMG_2881.jpg',titleRu:'Можно Всё',title:'Everything Is Possible',
+     descRu:'Динамичная работа с надписью «МОЖНО ВСЁ» — манифест свободы и силы воли. Рука, пронизанная красными линиями, разрывает оковы. Это не просто картина — это声明. Энергия, которая заряжает пространство и заставляет верить в невозможное.',
+     descEn:'Dynamic work with the inscription "EVERYTHING IS POSSIBLE" — a manifesto of freedom and willpower. An arm pierced by red lines breaks the chains.',
+     desc_de:'Dynamisches Werk mit der Inschrift "ALLES IST MÖGLICH" — ein Manifest der Freiheit und Willenskraft.',
+     desc_fr:'Œuvre dynamique avec l\'inscription "TOUT EST POSSIBLE" — un manifeste de liberté et de volonté.',
+     price:'15,000 ₽',size:'60 × 60 см',material:'Смешанная техника'},
+    {id:'p3',img:'IMG_2882.jpg',titleRu:'Зависимость',title:'Dependence',
+     descRu:'Женщина в спиральном положении, опутанная красными нитями зависимости. Борьба и подчинение в одном образе. Красная нить здесь — и оковы, и связь. Картина, которая заставляет задуматься о природе человеческих привязанностей.',
+     descEn:'A woman in spiral pose, entangled in red threads of dependence. Struggle and surrender in one image.',
+     desc_de:'Eine Frau in spiraler Pose, umwunden von roten Fäden der Abhängigkeit.',
+     desc_fr:'Une femme en pose spirale, enlacée par des fils rouges de dépendance.',
+     price:'По запросу',size:'54-74 см',material:'Смешанная техника',sold:false},
+    {id:'p4',img:'IMG_2883.jpg',titleRu:'Интимность',title:'Intimacy',
+     descRu:'Обнажённая фигура в мягком свете, укутанная белыми простынями. Тёплые тона кожи перетекают в холодные оттенки ткани. Чувственность без вульгарности, нежность без слабости. Картина, которая обнимает взглядом.',
+     descEn:'Nude figure in soft light, wrapped in white sheets. Warm skin tones flow into cool fabric shades. Sensuality without vulgarity.',
+     desc_de:'Nackte Figur in weichem Licht, in weiße Laken gehüllt. Warme Hauttöne fließen in kühle Stofftöne.',
+     desc_fr:'Figure nue dans une lumière douce, enveloppée de draps blancs. Tons chauds de la peau fondus dans les teintes froides du tissu.',
+     price:'18,000 ₽',size:'50-60 см',material:'Смешанная техника',sold:false},
+    {id:'p5',img:'IMG_2884.jpg',titleRu:'Мечтатели',title:'Dreamers',
+     descRu:'Три фигуры парят над облаками, словно освободившись от земного тяготения. Красные элементы на телах — связь с реальностью, которая остаётся позади. Картина о мечте, которая сильнее гравитации.',
+     descEn:'Three figures float above clouds, freed from earthly gravity. Red elements on bodies — a connection to the reality left behind.',
+     desc_de:'Drei Figuren schweben über Wolken, befreit von der irdischen Schwerkraft.',
+     desc_fr:'Trois figures flottent au-dessus des nuages, libérées de la gravité terrestre.',
+     price:'25,000 ₽',size:'70 × 70 см',material:'Смешанная техника',sold:false},
+    {id:'p6',img:'IMG_2885.jpg',titleRu:'Побережье',title:'Coastal',
+     descRu:'Средиземноморское побережье с каменными домиками и бирюзовой водой. Два полотна создают панораму тёплого южного побережья. Фактура краски передаёт шероховатость камня и гладкость воды.',
+     descEn:'Mediterranean coast with stone houses and turquoise water. Two canvases create a panorama of warm southern coastline.',
+     desc_de:'Mediterrane Küste mit Steinhäusern und türkisfarbenem Wasser.',
+     desc_fr:'Côte méditerranéenne avec maisons de pierre et eau turquoise.',
+     price:'По запросу',size:'Панорама',material:'Смешанная техника',sold:false},
+    {id:'p7',img:'IMG_2886.jpg',titleRu:'Закат на море',title:'Sunset at Sea',
+     descRu:'Закатное море с золотыми отражениями и бирюзовой водой. Два полотна — как два взгляда на один момент времени. Покой и величие морской стихии.',
+     descEn:'Sunset sea with golden reflections and turquoise water. Two canvases — two views of one moment in time.',
+     desc_de:'Sonnenuntergangsmeer mit goldenen Reflexionen und türkisfarbenem Wasser.',
+     desc_fr:'Mer au coucher du soleil avec reflets dorés et eau turquoise.',
+     price:'По запросу',size:'Панорама',material:'Смешанная техника',sold:false},
+    {id:'p8',img:'IMG_2887.jpg',titleRu:'Небесные Прыгуны',title:'Sky Divers',
+     descRu:'Три фигуры летят над облаками — свобода в чистом виде. Красные элементы на телах — нить, связывающая их с землёй. Картина о мечте, которая сильнее страха.',
+     descEn:'Three figures fly above clouds — pure freedom. Red elements on bodies — a thread connecting them to earth.',
+     desc_de:'Drei Figuren fliegen über Wolken — reine Freiheit.',
+     desc_fr:'Trois figures volent au-dessus des nuages — liberté pure.',
+     price:'По запросу',size:'70 × 70 см',material:'Смешанная техника',sold:false}
 ];
 
-// ===== LANGUAGE =====
+const murals = [
+    {id:'m1',img:'IMG_2872.jpg',titleRu:'Цветы',title:'Flowers',
+     descRu:'Интерьерная роспись с цветочными мотивами. Объёмные мазки акрилом и декоративной штукатуркой создают тактильную текстуру. Красная нить переплетается с лепестками, создавая уникальный орнамент.',
+     descEn:'Interior mural with floral motifs. Volumetric strokes of acrylic and decorative plaster create tactile texture.',
+     desc_de:'Innenwandmalerei mit Blumenmotiven. Voluminöse Pinselstriche aus Acryl und dekorativem Putz.',
+     desc_fr:'Peinture murale intérieure avec motifs floraux.',
+     price:'5,000 ₽',size:'300 × 200 см',material:'Акрил, декоративная штукатурка',sold:false},
+    {id:'m2',img:'IMG_2873.jpg',titleRu:'Природа',title:'Nature',
+     descRu:'Панорамная роспись стены. Красная нить переплетается с элементами ландшафта, создавая ощущение единства человека и природы.',
+     descEn:'Panoramic wall mural. Crimson thread intertwines with landscape elements.',
+     desc_de:'Panoramawandmalerei. Der rote Faden verwebt sich mit Landschaftselementen.',
+     desc_fr:'Peinture murale panoramique. Le fil cramoisi s\'entrelace avec les éléments du paysage.',
+     price:'Продано',size:'500 × 250 см',material:'Акрил, декоративная штукатурка',sold:true},
+    {id:'m3',img:'IMG_2874.jpg',titleRu:'Кафе',title:'Cafe',
+     descRu:'Декоративная роспись для кафе. Атмосферная композиция создаёт уютное пространство для гостей.',
+     descEn:'Decorative mural for a cafe. Atmospheric composition creates a cozy space for guests.',
+     desc_de:'Dekorative Wandmalerei für ein Café. Atmosphärische Komposition.',
+     desc_fr:'Peinture murale décorative pour un café.',
+     price:'Продано',size:'250 × 180 см',material:'Акрил, декоративная штукатурка',sold:true},
+    {id:'m4',img:'IMG_2875.jpg',titleRu:'Интерьер',title:'Interior',
+     descRu:'Роспись для жилого пространства. Интимная композиция, гармонично вписывающаяся в домашнюю атмосферу.',
+     descEn:'Mural for living space. Intimate composition harmoniously fitting into home atmosphere.',
+     desc_de:'Wandmalerei für Wohnräume. Intime Komposition für die häusliche Atmosphäre.',
+     desc_fr:'Peinture murale pour espace de vie.',
+     price:'6,000 ₽',size:'400 × 220 см',material:'Акрил, декоративная штукатурка',sold:false},
+    {id:'m5',img:'IMG_2876.jpg',titleRu:'Абстрактные Волны',title:'Abstract Waves',
+     descRu:'Динамичная роспись с волнами и красными нитями. Энергия и движение на стене — как визуальная музыка.',
+     descEn:'Dynamic mural with waves and red threads. Energy and movement on the wall.',
+     desc_de:'Dynamische Wandmalerei mit Wellen und roten Fäden.',
+     desc_fr:'Peinture murale dynamique avec vagues et fils rouges.',
+     price:'5,500 ₽',size:'350 × 200 см',material:'Акрил, декоративная штукатурка',sold:false},
+    {id:'m6',img:'IMG_2877.jpg',titleRu:'Ботанический Сад',title:'Botanical Garden',
+     descRu:'Ботаническая роспись с цветами и растениями. Натуральные мотивы в современной интерпретации с фирменными красными нитями.',
+     descEn:'Botanical mural with flowers and plants. Natural motifs in contemporary interpretation.',
+     desc_de:'Botanische Wandmalerei mit Blumen und Pflanzen.',
+     desc_fr:'Peinture murale botanique avec fleurs et plantes.',
+     price:'Продано',size:'600 × 300 см',material:'Акрил, декоративная штукатурка',sold:true},
+    {id:'m7',img:'IMG_2878.jpg',titleRu:'Геометрия',title:'Geometry',
+     descRu:'Геометрическая роспись с пересечением форм и линий. Красная нить в строгой композиции создаёт контраст хаоса и порядка.',
+     descEn:'Geometric mural with intersecting forms and lines. Crimson thread in strict composition creates contrast of chaos and order.',
+     desc_de:'Geometrische Wandmalerei mit sich kreuzenden Formen und Linien.',
+     desc_fr:'Peinture murale géométrique avec formes et lignes qui se croisent.',
+     price:'6,500 ₽',size:'450 × 250 см',material:'Акрил, декоративная штукатурка',sold:false},
+    {id:'m8',img:'IMG_2879.jpg',titleRu:'Индивидуальный Заказ',title:'Custom Order',
+     descRu:'Разработка уникального дизайна под конкретное пространство. Каждый заказ — авторская работа, созданная совместно с клиентом.',
+     descEn:'Unique design development for specific spaces. Each order is an authorial work created with the client.',
+     desc_de:'Einzigartige Designentwicklung für spezifische Räume.',
+     desc_fr:'Développement de design unique pour des espaces spécifiques.',
+     price:'По запросу',size:'Индивидуально',material:'Акрил, декоративная штукатурка',sold:false}
+];
+
+// LANGUAGE
 let currentLang = 'ru';
 function setLang(lang) {
     currentLang = lang;
@@ -371,17 +426,17 @@ function setLang(lang) {
     renderGrid('mural-grid', murals);
 }
 
-// ===== CAROUSEL =====
+// CAROUSEL
 function renderCarousel() {
     const all = [...paintings, ...murals];
     const doubled = [...all, ...all];
     document.getElementById('carousel-track').innerHTML = doubled.map(item => `
-        <div class="artwork-card" onclick="openPainting('${item.id}')">
-            <div class="artwork-img">
+        <div class="carousel-card" onclick="openPainting('${item.id}')">
+            <div class="frame">
                 <img src="${item.img}" alt="${currentLang === 'ru' ? item.titleRu : item.title}" loading="lazy">
-                ${item.sold ? '<span class="artwork-badge">SOLD</span>' : ''}
+                ${item.sold ? '<span class="badge">SOLD</span>' : ''}
             </div>
-            <div class="artwork-info">
+            <div class="card-info">
                 <h3>${currentLang === 'ru' ? item.titleRu : item.title}</h3>
                 <p>${item.price}</p>
             </div>
@@ -389,15 +444,15 @@ function renderCarousel() {
     `).join('');
 }
 
-// ===== GRID =====
+// GRID
 function renderGrid(containerId, items) {
     document.getElementById(containerId).innerHTML = items.map(item => `
         <div class="grid-card fade-in" onclick="openPainting('${item.id}')">
-            <div class="artwork-img">
+            <div class="frame" style="aspect-ratio:3/4">
                 <img src="${item.img}" alt="${currentLang === 'ru' ? item.titleRu : item.title}" loading="lazy">
-                ${item.sold ? '<span class="artwork-badge">SOLD</span>' : ''}
+                ${item.sold ? '<span class="badge">SOLD</span>' : ''}
             </div>
-            <div class="artwork-info">
+            <div class="card-info">
                 <h3>${currentLang === 'ru' ? item.titleRu : item.title}</h3>
                 <p>${item.size ? item.size + ' · ' : ''}${item.price}</p>
             </div>
@@ -406,22 +461,18 @@ function renderGrid(containerId, items) {
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 }
 
-// ===== PAINTING PAGE =====
+// PAINTING PAGE
 function openPainting(id) {
     const item = [...paintings, ...murals].find(i => i.id === id);
     if (!item) return;
-
     const lang = currentLang;
     const title = lang === 'ru' ? item.titleRu : item.title;
-    const desc = lang === 'ru' ? item.descRu : (item.descEn || item.descRu);
-
-    document.getElementById('painting-image').innerHTML = `<img src="${item.img}" alt="${title}">`;
-
+    const desc = lang === 'ru' ? item.descRu : (item['desc'+lang.charAt(0).toUpperCase()+lang.slice(1)] || item.descRu);
+    document.getElementById('painting-image').innerHTML = `<div class="frame" style="max-width:90%;max-height:80vh"><img src="${item.img}" alt="${title}"></div>`;
     const buyBtns = item.sold ? '' : `
         <button class="painting-btn painting-btn-primary" data-ru="Купить" data-en="Buy" data-de="Kaufen" data-fr="Acheter">Купить</button>
         <button class="painting-btn painting-btn-secondary" data-ru="Написать" data-en="Inquire" data-de="Anfragen" data-fr="Demander">Написать</button>
     `;
-
     document.getElementById('painting-details').innerHTML = `
         <h1>${title}</h1>
         <p class="painting-status" style="color:${item.sold ? '#c81414' : '#4a9'}">${item.sold ? (lang === 'ru' ? 'Продано' : 'Sold') : (lang === 'ru' ? 'В наличии' : 'Available')}</p>
@@ -436,7 +487,6 @@ function openPainting(id) {
             <button class="painting-btn painting-btn-secondary" onclick="navigator.share({title:'${title}',url:window.location.href})"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-right:8px;vertical-align:middle"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98m-.11-9.98-6.82 3.98"/></svg>Поделиться</button>
         </div>
     `;
-
     document.getElementById('home-page').classList.add('hidden');
     document.getElementById('painting-page').classList.add('active');
     document.getElementById('painting-footer').style.display = 'block';
@@ -450,13 +500,11 @@ function showHome() {
     window.scrollTo(0, 0);
 }
 
-// ===== SCROLL ANIMATION =====
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// ===== INIT =====
 renderCarousel();
 renderGrid('paintings-grid', paintings);
 renderGrid('mural-grid', murals);
